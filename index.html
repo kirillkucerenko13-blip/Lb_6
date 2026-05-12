@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Валютний інформер</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Ліва панель: список валют -->
+      <div class="panel left-panel">
+        <h2 id="current-date-title">
+          Курс валют на <span id="current-date"></span>
+        </h2>
+        <ul class="currency-list" id="currency-list">
+          <li class="currency-item">Завантаження...</li>
+        </ul>
+      </div>
+
+      <!-- Права панель: конвертер + історія -->
+      <div class="panel right-panel">
+        <h2>Конвертер валют</h2>
+
+        <div class="converter-block">
+          <input type="number" id="amount-foreign" placeholder="Сума" min="0" />
+          <input
+            list="currency-select"
+            id="currency-input-foreign"
+            placeholder="Виберіть валюту"
+          />
+          <span class="arrow">&rarr;</span>
+          <input
+            type="number"
+            id="amount-uah-result"
+            placeholder="Гривні"
+            readonly
+          />
+        </div>
+
+        <div class="converter-block">
+          <input type="number" id="amount-uah" placeholder="Гривні" min="0" />
+          <span class="arrow">&rarr;</span>
+          <input
+            list="currency-select"
+            id="currency-input-local"
+            placeholder="Виберіть валюту"
+          />
+          <input
+            type="number"
+            id="amount-foreign-result"
+            placeholder="Сума"
+            readonly
+          />
+        </div>
+
+        <datalist id="currency-select"></datalist>
+
+        <hr class="divider" />
+
+        <!-- Блок історії курсу (пункт 1 завдання) -->
+        <h3 id="history-title">Курс валюти за тиждень</h3>
+
+        <!-- Блок вибору діапазону дат (пункт 8* завдання) -->
+        <div class="date-range-block">
+          <label>
+            Від:
+            <input type="date" id="date-from" />
+          </label>
+          <label>
+            До:
+            <input type="date" id="date-to" />
+          </label>
+          <button id="btn-load-range">Завантажити</button>
+        </div>
+
+        <div id="history-output">
+          <p class="hint">Виберіть валюту зі списку зліва</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
